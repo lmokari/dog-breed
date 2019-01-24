@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { randomImage } from '../actions';
+import { bindActionCreators } from 'redux';
+
+import RandomDogImg from '../components/randomImg'
 
 class HomeContainer extends Component { 
 
@@ -11,11 +13,16 @@ class HomeContainer extends Component {
         this.props.randomImage()
     }
 
-    render(){
-        console.log(this.props.randomImage)      
+    handleFetch = () =>{
+        this.props.randomImage()
+      }
+
+    render(){    
         return (
             <div>
-              <button onClick={ this.props.randomImage() } >Fetch</button>
+              <Link to="/breedsList">Breed List</Link><br/>
+              <button onClick={ this.handleFetch } >Fetch</button>
+              <RandomDogImg dogBreed={this.props.dogBreed} />
             </div>
         )
     }
@@ -25,7 +32,7 @@ class HomeContainer extends Component {
 
 function mapStateToProps(state){
     return {
-      randomImage:state.randomImage
+      dogBreed:state.dogBreed
     }
     
 }
