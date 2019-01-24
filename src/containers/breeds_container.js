@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { allBreedList } from '../actions';
-import { bindActionCreators } from 'redux';
+// import { allBreedList } from '../actions';
+import * as actions from '../actions';
+// import { bindActionCreators } from 'redux';
 
 import BreedsList from '../components/breedsList';
 
@@ -11,7 +12,6 @@ class BreedsListContainer extends Component {
 
     componentWillMount() {
         this.props.allBreedList()
-        console.log(this.props)
     }
 
     render(){     
@@ -32,9 +32,9 @@ function mapStateToProps(state){
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({allBreedList},dispatch)
-}
+// function mapDispatchToProps(dispatch){
+//     return bindActionCreators({allBreedList},dispatch)
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(BreedsListContainer)
+export default connect(mapStateToProps,actions)(BreedsListContainer)
