@@ -6,14 +6,14 @@ const Breedlist = (props) =>{
     return (
         <div>
             <ul>
-            { props.dogBreed.breedList && props.dogBreed.breedList.length > 0 ?
-               props.dogBreed.breedList.map( item => (
-                   <li key={item}>
-                        <Link to={`/breed/${item}`}>
-                            {item}
-                        </Link>
-                    </li>
-               )): null
+                { props.dogBreed.breedList && props.dogBreed.breedList.length > 0 ?
+                props.dogBreed.breedList.map( item => (
+                    <li key={item}>
+                            <Link to={`/breed/${item}`}>
+                                {item}
+                            </Link>
+                        </li>
+                )): null
                 }
             </ul>
         </div>

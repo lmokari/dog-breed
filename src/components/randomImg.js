@@ -1,13 +1,14 @@
 import React from 'react';
 
-const RandomImg = (props) =>{
+const RandomImg = props => {
+    const { randomImg } = props.dogBreed;
     return (
+        /** 
+         * the `&&` removed the need for a ternary that returns `null`. 
+         * Everything right of the `&&` will only run if everything on the left evaluates to true.
+         * */ 
         <div>
-            { props.dogBreed.randomImg && props.dogBreed.randomImg.length > 0 ?
-                <img src= { props.dogBreed.randomImg } alt="" /> 
-                : null
-            }
-    
+            { randomImg && randomImg.length > 0 && <img src={ randomImg } alt="" />}
         </div>
     )
 }
