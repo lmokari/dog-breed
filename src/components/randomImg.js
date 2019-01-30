@@ -1,13 +1,10 @@
 import React from 'react';
 
-const RandomImg = (props) =>{
+const RandomImg = props =>{
+    const { randomImg } = props.dogBreed;
     return (
         <div>
-            { props.dogBreed.randomImg && props.dogBreed.randomImg.length > 0 ?
-                <img src= { props.dogBreed.randomImg } alt="" /> 
-                : null
-            }
-    
+            { randomImg && randomImg.length > 0 && <img src={ randomImg } alt="" /> }
         </div>
     )
 }

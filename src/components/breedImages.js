@@ -3,7 +3,6 @@ import React from 'react';
 const BreedImages = (props) =>{
 
     return (
-        <div>
             <ul>
             { props.dogBreed.breedImages && props.dogBreed.breedImages.length > 0 ?
                props.dogBreed.breedImages.map( item => (
@@ -13,7 +12,6 @@ const BreedImages = (props) =>{
                )): null
                 }
             </ul>
-        </div>
     )
 }
 
