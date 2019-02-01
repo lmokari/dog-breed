@@ -7,6 +7,20 @@ import promiseMiddleware from 'redux-promise';
 import { createLogger } from 'redux-logger'
 import Routes from './routes'
 import reducers from './reducers'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #eee;
+    font-family: karla,monospace;
+    line-height: 1.8;
+    color: #333;
+    font-size: 18px;
+  }
+  ul li{
+      list-style: none;
+  }
+`
 
 const logger = createLogger({
     collapsed: true,
@@ -17,7 +31,10 @@ const createStoreWithMiddleware = applyMiddleware(logger, promiseMiddleware)(cre
 ReactDOM.render(
         <Provider store={createStoreWithMiddleware(reducers)}>
             <BrowserRouter>
-                <Routes/>
+                <div>
+                    <GlobalStyle />
+                    <Routes/>
+                </div>
             </BrowserRouter>
         </Provider>
     , document.getElementById('root'));

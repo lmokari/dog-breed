@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import BreedsList from '../components/breedsList';
+import {Links}  from '../ui/Link';
 
 const BreedsListContainer = ({ dogBreed, allBreedList }) => {
      return (
         <div>
-            <Link to="/">Back to home</Link><br/>
+            <Links as={ Link } to="/">Back to home</Links>
             <BreedsList  dogBreed={ dogBreed } />
         </div>
         )

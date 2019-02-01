@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {Links}  from '../ui/Link';
 
 const Breedlist = (props) =>{
     return (
@@ -8,9 +9,9 @@ const Breedlist = (props) =>{
                 {props.dogBreed.breedList && props.dogBreed.breedList.length > 0 ?
                 props.dogBreed.breedList.map( item => (
                     <li key={item}>
-                            <Link to={`/breed/${item}`}>
+                            <Links as={Link} to={`/breed/${item}`}>
                                 {item}
-                            </Link>
+                            </Links>
                         </li>
                 )): null
                 }
